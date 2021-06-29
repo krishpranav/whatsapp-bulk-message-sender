@@ -12,25 +12,39 @@ erfan4lx = (function(){
 
     var scrollInterval, observer, membersList, header;
 
-    var start = function() {
+
+    var start = function(){
+
         membersList = document.querySelectorAll('span[title=You]')[0]?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode;
         header = document.getElementsByTagName('header')[0];
-        
-        if (!membersList) {
+
+        if(!membersList){
             document.querySelector("#main > header").firstChild.click();
             membersList = document.querySelectorAll('span[title=You]')[0]?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode;
-            header = document.getElementsByTagName('header')[0]
+            header = document.getElementsByTagName('header')[0];
         }
 
-        observer = new MutationObserver(function (mutation, observer) {
-            scrapeData();
+        observer = new MutationObserver(function (mutations, observer) {   
+            scrapeData(); // fired when a mutation occurs
         });
+    
 
         observer.observe(membersList, {
             childList: true,
             subtree: true
         });
+
+        TOTAL_MEMBERS = membersList.parentElement.parentElement.querySelector('span').innerText.match(/\d+/)[0]*1;
+        
+        document.querySelector("span[data-icon=down]")?.click()
+
+
+        header.nextSibling.scrollTop = 100;
+        scrapeData();
+
+        if(AUTO_SCROLL) scrollInterval = setInterval(autoScroll, SCROLL_INTERVAL);    
     }
+
 
 })();
 
