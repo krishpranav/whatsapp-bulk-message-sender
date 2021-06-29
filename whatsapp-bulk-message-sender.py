@@ -16,7 +16,7 @@ with open(r"{}".format(files), encoding='UTF-8') as f:
         user = row[0]
         users.append(user)
 
-
+# whatsapp bot class
 class WhatsappBot:
     
     def __init__(self):
@@ -27,6 +27,7 @@ class WhatsappBot:
         options.add_argument('lang=pt-br')
         self.driver = webdriver.Chrome(executable_path = './chromedriver')
 
+    # send message function
     def SendMessage(self):
         link = 'https://web.whatsapp.com/'
         self.driver.get(link)
