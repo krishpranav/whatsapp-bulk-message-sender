@@ -15,4 +15,15 @@ with open(r"{}".format(files), encoding='UTF-8') as f:
     for row in rows:
         user = row[0]
         users.append(user)
+
+
+class WhatsappBot:
+    
+    def __init__(self):
+        self.message = messages
+        self.contatos = users
+
+        options = webdriver.ChromeOption()
+        options.add_argument('lang=pt-br')
+        self.driver = webdriver.Chrome(executable_path = './chromedriver')
         
