@@ -8,4 +8,5 @@ A simple tool to send bulk messages in whatsapp
 ```
 git clone https://github.com/krishpranav/whatapp-bulk-message-sender
 cd whatsapp-bulk-message-sender
+python3 whatsapp-bulk-message-sender.py
 ```
