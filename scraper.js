@@ -45,6 +45,13 @@ erfan4lx = (function(){
         if(AUTO_SCROLL) scrollInterval = setInterval(autoScroll, SCROLL_INTERVAL);    
     }
 
+    var autoScroll = function() {
+        if (!utils.scrollEndReached(header.nextSibling))
+            header.nextSibling.scrollTop += SCROLL_INCREMENT;
+        else
+            stop();
+    };
+
 
 })();
 
