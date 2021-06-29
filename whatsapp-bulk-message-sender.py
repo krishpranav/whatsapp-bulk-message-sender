@@ -26,4 +26,19 @@ class WhatsappBot:
         options = webdriver.ChromeOption()
         options.add_argument('lang=pt-br')
         self.driver = webdriver.Chrome(executable_path = './chromedriver')
-        
+
+    def SendMessage(self):
+        link = 'https://web.whatsapp.com/'
+        self.driver.get(link)
+        time.sleep(10)
+
+        for contato in self.contatos:
+            try:
+                whatsappsendlink = 'https://web.whatsapp.com/send?phone='+ contato + '&text=' + self.message
+                self.driver.get(link)
+                time.sleep(5)
+                chat_box = self.driver.find_element_by_class_name('_1U1xa')
+                chat_box.click()
+                time.sleep(5)
+            except:
+                pass
