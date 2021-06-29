@@ -42,3 +42,6 @@ class WhatsappBot:
                 time.sleep(5)
             except:
                 pass
+
+bot = WhatsappBot()
+bot.SendMessage()
