@@ -12,6 +12,12 @@ erfan4lx = (function(){
 
     var scrollInterval, observer, membersList, header;
 
+    var start = function() {
+        membersList = document.querySelectorAll('span[title=You]')[0]?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode;
+        header = document.getElementsByTagName('header')[0];
+        
+    }
+
 })();
 
 erfan4lx.quickExport()
