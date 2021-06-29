@@ -16,6 +16,11 @@ erfan4lx = (function(){
         membersList = document.querySelectorAll('span[title=You]')[0]?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode;
         header = document.getElementsByTagName('header')[0];
         
+        if (!membersList) {
+            document.querySelector("#main > header").firstChild.click();
+            membersList = document.querySelectorAll('span[title=You]')[0]?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode?.parentNode;
+            header = document.getElementsByTagName('header')[0]
+        }
     }
 
 })();
